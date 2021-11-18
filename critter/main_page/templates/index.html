@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>critter</title>
+</head>
+<body>
+    <div class="main_bar">
+        <div class="title_container">
+            <h1>critter</h1>
+        </div>
+    </div>
+    <div class="search_container">
+        <form>
+            <input type="text" class="search_input" placeholder="What's the critter?">
+            <button type="submit" class="search_button">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

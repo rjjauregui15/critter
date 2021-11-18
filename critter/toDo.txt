@@ -1,0 +1,5 @@
+things to be done
+
+1. choose first 5 cities
+2. make drop down menue with 5 cities not pulling from database 
+3. display current forcast of choosen city
