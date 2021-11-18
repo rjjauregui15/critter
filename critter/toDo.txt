@@ -1,5 +1,10 @@
 things to be done
 
-1. choose first 5 cities
-2. make drop down menue with 5 cities not pulling from database 
-3. display current forcast of choosen city
+1. choose first 5 cities - done
+2. make drop down menue with 5 cities not pulling from database - done
+3. submit city to js file 
+4. js sends request to funtion that displays current weather 
+    - js sends request to funtion
+    - funtion gets api for location submited
+    - server gets data and dynamacly updates html page 
+display current forcast of choosen city 
