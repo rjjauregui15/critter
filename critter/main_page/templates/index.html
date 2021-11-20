@@ -1,7 +1,8 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,23 +22,27 @@
             <button type="submit" class="search_button">
                 <i class="fas fa-search"></i>
             </button> -->
-            <select>
+            <select name="locations" id="locations" >
                 <option value="santa_cruz_Ca">Santa Cruz, Ca</option>
                 <option value="yosemite_national_park">Yosemite National Park</option>
                 <option value="joshua_tree_national_park">Joshua Tree National Park</option>
                 <option value="mexico_city_MX">Mexico City, MX</option>
                 <option value="manchester_UK">Manchester, UK</option>
             </select>
+            <button  type="submit" class="todo-button">
+                <!-- <i class="fas fa-plus"></i> -->
+            </button>
         </form>
     </div>
-    <div class="animal_container">
+    <!-- <div class="animal_container">
         <form>
             <input type="text" class="search_input" placeholder="What's the critter?">
             <button type="submit" class="search_button">
                 <i class="fas fa-search"></i>
             </button>
         </form>
-    </div>
+    </div> -->
+    <script src="{% static 'javascript/app.js' %}"></script> 
 </body>
 </html>
 
