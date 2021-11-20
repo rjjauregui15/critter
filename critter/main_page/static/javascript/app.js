@@ -10,5 +10,6 @@ todoButton.addEventListener('click', addCombo);
 function addCombo(event) {
     // Prevent form from submitting
     event.preventDefault();
+    
     console.log(locationPicked.value);
 }
