@@ -13,54 +13,30 @@
 <body>
     <div class="main_bar">
         <div class="title_container">
-            <h1>critter</h1>
+            <h1>slug finder</h1>
         </div>
     </div>
     <div class="animal_container">
 
     </div>
     <div class="location_container">
-        <div class="animal_choice">
-            Animal: <span class="choice"> ff</span> <br><br>
-        </div>
-        <!-- <form> -->
-            <!-- <input type="text" class="search_input" placeholder="What's the spot?">
-            <button type="submit" class="search_button">
-                <i class="fas fa-search"></i>
-            </button> -->
-            <!-- <select name="locations" id="locations" >
-                <option value="santa_cruz_Ca">Santa Cruz, Ca</option>
-                <option value="yosemite_national_park">Yosemite National Park</option>
-                <option value="joshua_tree_national_park">Joshua Tree National Park</option>
-                <option value="mexico_city_MX">Mexico City, MX</option>
-                <option value="manchester_UK">Manchester, UK</option>
-            </select> -->
-            <!-- <button  type="submit" class="todo-button"> -->
-                <!-- <i class="fas fa-plus"></i> -->
-            <!-- </button>
-        </form> -->
-    </div>
-    <div class="location_container">
-        <div>Location:</div>
+        <div class="wru">where are we looking?:</div> 
         <form>
-            <label for="auto_location">use my location</label>
-            <input type="checkbox" id="auto_location" value="auto_location"><br>
-            <div> or </div>
-            <label for="longitude_input">longitude:</label>
-            <input type="text" id="longitude_input"><br><br>
-            <label for="latitude_input">latitude:</label>
+            <label class="custom-checkbox" tab-index="0" aria-label="Another Label">
+                <label class="location_label">my current location:</label>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br><div> or </div><br>
+            <label class="location_label">longitude:</label>
+            <input type="text" id="longitude_input"><br>
+            <label class="location_label">latitude:</label>
             <input type="text" id="latitude_input" ><br>
-            <button type="submit" class="search_button"></button>
-        </form> 
-    </div>
-    <!-- <div class="animal_container">
-        <form>
-            <input type="text" class="search_input" placeholder="What's the critter?">
             <button type="submit" class="search_button">
                 <i class="fas fa-search"></i>
             </button>
-        </form>
-    </div> -->
+        </form> 
+    </div>
     <script src="{% static 'javascript/app.js' %}"></script> 
 </body>
 </html>
