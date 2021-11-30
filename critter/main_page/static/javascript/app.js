@@ -10,12 +10,8 @@ function checkInputtedLocation(event) {
   // Prevent form from submitting
   event.preventDefault();
 
-  //console.log(checkMark.checked);
-  window.navigator.geolocation.getCurrentPosition(useGeoLocate, console.log);
-  // console.log(coords.latitude)
-
-
-
+  //make function for not using location
+  window.navigator.geolocation.getCurrentPosition(useGeoLocate, noGeoLocate);
 
   // if checkMArk.checked == 1 
   // call function to get cordinites 
@@ -53,10 +49,45 @@ function useGeoLocate(pos){
   const position = pos.coords;
   let long = position.longitude
   let lat = position.latitude;
-  sendLocation(long, lat);
+  sendLocationToServer(long, lat);
 }
 
-function sendLocation(sendLong, sendLat){
-  console.log("funny shit")
-  console.log(sendLong);
+function sendLocationToServer(sendLong, sendLat){
+
+  const location = {
+    longitude: sendLong,
+    latitude: sendLat
+  };
+
+  
+
+  fetch('http://127.0.0.1:8000/test/', {
+    method: 'GET',
+    // body: JSON.stringify(location),
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  }).then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  }).catch((error) => {
+    console.error("no ggod");
+  });
+  
+  // .then(goodServerResponse).catch(errorServerResponse)
+  
+}
+
+function noGeoLocate() {
+  if (checkMark.checked == 1){
+    alert("Please enable location in the browser");
+  }
+}
+
+function goodServerResponse(response){
+  console.log("winningrr")
+}
+
+function errorServerResponse(response){
+
 }
