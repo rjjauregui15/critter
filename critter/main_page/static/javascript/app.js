@@ -3,16 +3,19 @@ const searchButton = document.querySelector('.search_button');
 const checkMark = document.querySelector('#check_mark_box');
 
 //Event Listeners
-searchButton.addEventListener('click', checkLocation);
+searchButton.addEventListener('click', checkInputtedLocation);
 
 //Functions 
-function checkLocation(event) {
+function checkInputtedLocation(event) {
   // Prevent form from submitting
   event.preventDefault();
 
   //console.log(checkMark.checked);
+  window.navigator.geolocation.getCurrentPosition(useGeoLocate, console.log);
+  // console.log(coords.latitude)
 
-  
+
+
 
   // if checkMArk.checked == 1 
   // call function to get cordinites 
@@ -27,10 +30,10 @@ function checkLocation(event) {
 
 
   // function list
-  - get user Input
-  - faction to send the information Over
-  - function to recive information
-  - funtion to put ont he screen 
+  // - get user Input
+  // - faction to send the information Over
+  // - function to recive information
+  // - funtion to put ont he screen 
 
 
     // let request = new XMLHttpRequest();
@@ -46,3 +49,14 @@ function checkLocation(event) {
 
 }
 
+function useGeoLocate(pos){
+  const position = pos.coords;
+  let long = position.longitude
+  let lat = position.latitude;
+  sendLocation(long, lat);
+}
+
+function sendLocation(sendLong, sendLat){
+  console.log("funny shit")
+  console.log(sendLong);
+}
