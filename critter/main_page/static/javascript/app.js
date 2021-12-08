@@ -10,10 +10,12 @@ function checkInputtedLocation(event) {
   // Prevent form from submitting
   event.preventDefault();
 
-  //make function for not using location
-  window.navigator.geolocation.getCurrentPosition(useGeoLocate, noGeoLocate);
+  
 
-  // if checkMArk.checked == 1 
+  if (checkMark.checked == 1) {
+    window.navigator.geolocation.getCurrentPosition(useGeoLocate, noGeoLocate);
+  }
+
   // call function to get cordinites 
   // get cordinates  and call other fintion to ship out and ship them out
   // have function to recives message then another to print out to screen
@@ -53,9 +55,7 @@ function useGeoLocate(pos){
 }
 
 function sendLocationToServer(sendLong, sendLat){
-
   const url = `http://127.0.0.1:8000/test/${sendLong}/${sendLat}`
-
   fetch(url, {
     method: 'GET',
     headers:{
@@ -63,12 +63,12 @@ function sendLocationToServer(sendLong, sendLat){
     }
   }).then(response => response.json())
   .then(data => {
-    console.log('Success:', data);
+    displayWeather(data)
   }).catch((error) => {
-    console.error("no ggod");
+    console.log('errossssr ', error);
+    // funtionn to loog error in if problem occured
   });
   
-  // .then(goodServerResponse).catch(errorServerResponse)
   
 }
 
@@ -78,10 +78,36 @@ function noGeoLocate() {
   }
 }
 
-function goodServerResponse(response){
-  console.log("winningrr")
+function displayWeather(weather_data){
+  const answer_box = document.createElement('div');
+  answer_box.classList.add('response_box');
+  var newContent = document.createTextNode('description: ' + weather_data.weather[0].description);
+  answer_box.appendChild(newContent);
+  var linebreak = document.createElement('br');
+  answer_box.appendChild(linebreak);
+  var newContent = document.createTextNode('temperature: ' + weather_data.main.temp);
+  answer_box.appendChild(newContent);
+  var linebreak = document.createElement('br');
+  answer_box.appendChild(linebreak);
+
+
+
+  
+  const newContent2 = document.createTextNode(weather_data.weather[0].icon);
+  
+  // answer_box.appendChild(newContent2);
+  document.body.appendChild(answer_box);
+  // const element = document.getElementsByClassName('location_container');
+  // element.appendChild(answer_box);
+
+  // white box: display temperature/description/
+  // 
+
+
+
 }
 
 function errorServerResponse(response){
 
 }
+
