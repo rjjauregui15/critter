@@ -54,16 +54,10 @@ function useGeoLocate(pos){
 
 function sendLocationToServer(sendLong, sendLat){
 
-  const location = {
-    longitude: sendLong,
-    latitude: sendLat
-  };
+  const url = `http://127.0.0.1:8000/test/${sendLong}/${sendLat}`
 
-  
-
-  fetch('http://127.0.0.1:8000/test/', {
+  fetch(url, {
     method: 'GET',
-    // body: JSON.stringify(location),
     headers:{
       'Content-Type': 'application/json'
     }
